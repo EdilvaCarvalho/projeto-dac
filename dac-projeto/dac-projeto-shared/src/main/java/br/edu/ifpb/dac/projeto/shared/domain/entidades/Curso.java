@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -17,6 +19,7 @@ import javax.persistence.OneToMany;
 public class Curso implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 40)
     private String unidade;
@@ -31,6 +34,14 @@ public class Curso implements Serializable {
     private List<Aula> aulas;
 
     public Curso() {
+    }
+
+    public Curso(String unidade, String descricao, String abreviacao, int periodos) {
+        this.unidade = unidade;
+        this.descricao = descricao;
+        this.abreviacao = abreviacao;
+        this.periodos = periodos;
+        this.aulas = new ArrayList<>();
     }
 
     public Curso(int codigo, String unidade, String descricao, String abreviacao, int periodos) {

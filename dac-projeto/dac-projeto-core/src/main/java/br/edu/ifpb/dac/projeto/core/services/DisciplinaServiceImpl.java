@@ -1,39 +1,49 @@
 
 package br.edu.ifpb.dac.projeto.core.services;
 
+import br.edu.ifpb.dac.projeto.core.dao.interfaces.DisciplinaDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.DisciplinaService;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Remote(DisciplinaService.class)
 public class DisciplinaServiceImpl implements DisciplinaService{
+    
+    @EJB
+    private DisciplinaDAO disciplinaDAO;
 
     @Override
     public void salvar(Disciplina disciplina) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        disciplinaDAO.salvar(disciplina);
     }
 
     @Override
     public void atualizar(Disciplina disciplina) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        disciplinaDAO.atualizar(disciplina);
     }
 
     @Override
-    public void remover(Disciplina disciplina) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(int codigo) {
+        Disciplina disciplina = disciplinaDAO.getDisciplina(codigo);
+        disciplinaDAO.remover(disciplina);
     }
 
     @Override
     public Disciplina getDisciplina(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return disciplinaDAO.getDisciplina(codigo);
     }
 
     @Override
     public List<Disciplina> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return disciplinaDAO.listar();
     }
     
 }

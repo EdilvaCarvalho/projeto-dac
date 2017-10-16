@@ -7,6 +7,8 @@ import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -17,6 +19,7 @@ import javax.persistence.Id;
 public class Horario implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int hor_cod;
     @Column(length = 10)
     private String hor_desc;
@@ -26,6 +29,12 @@ public class Horario implements Serializable {
     private LocalTime hor_fim;
 
     public Horario() {
+    }
+
+    public Horario(String hor_desc, LocalTime hor_inicio, LocalTime hor_fim) {
+        this.hor_desc = hor_desc;
+        this.hor_inicio = hor_inicio;
+        this.hor_fim = hor_fim;
     }
 
     public Horario(int hor_cod, String hor_desc, LocalTime hor_inicio, LocalTime hor_fim) {

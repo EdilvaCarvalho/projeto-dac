@@ -12,7 +12,7 @@ public interface SalaService {
     
     void salvar(Sala sala);
     void atualizar(Sala sala);
-    void remover(Sala sala);
+    void remover(int codigo);
     Sala getSala(int codigo);
     List<Sala> listar();
 }

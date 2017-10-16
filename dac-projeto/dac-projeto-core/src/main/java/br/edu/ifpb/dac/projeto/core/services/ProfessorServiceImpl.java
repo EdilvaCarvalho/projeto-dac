@@ -1,39 +1,49 @@
 
 package br.edu.ifpb.dac.projeto.core.services;
 
+import br.edu.ifpb.dac.projeto.core.dao.interfaces.ProfessorDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.ProfessorService;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Remote(ProfessorService.class)
 public class ProfessorServiceImpl implements ProfessorService{
+    
+    @EJB
+    private ProfessorDAO professorDAO;
 
     @Override
     public void salvar(Professor professor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        professorDAO.salvar(professor);
     }
 
     @Override
     public void atualizar(Professor professor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        professorDAO.atualizar(professor);
     }
 
     @Override
-    public void remover(Professor professor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(int codigo) {
+        Professor professor = professorDAO.getProfessor(codigo);
+        professorDAO.remover(professor);
     }
 
     @Override
     public Professor getProfessor(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return professorDAO.getProfessor(codigo);
     }
 
     @Override
     public List<Professor> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return professorDAO.listar();
     }
     
 }

@@ -8,7 +8,6 @@
     <modules>
         <module>dac-projeto-shared</module>
         <module>dac-projeto-core</module>
-        <module>dac-projeto-jse</module>
         <module>dac-projeto-json</module>
         <module>dac-projeto-web</module>
     </modules>

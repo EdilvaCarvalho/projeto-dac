@@ -3,18 +3,34 @@ package br.edu.ifpb.dac.projeto.shared.domain.entidades;
 import br.edu.ifpb.dac.projeto.shared.domain.enuns.TipoUsuario;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Edilva
  */
+@Entity
 public class Usuario implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(length = 80)
     private String nome;
+    @Column(length = 80)
     private String sobrenome;
+    @Column(length = 80)
     private String email;
+    @Column(length = 30)
     private String senha;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_usuario", length = 40)
     private TipoUsuario tipoUsuario;
     private boolean acesso;
 

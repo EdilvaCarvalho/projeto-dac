@@ -12,7 +12,7 @@ public interface UsuarioService {
     
     void salvar(Usuario usuario);
     void atualizar(Usuario usuario);
-    void remover(Usuario usuario);
+    void remover(int id);
     Usuario getUsuario(int id);
     Usuario autenticar(String email, String senha);
     List<Usuario> listarTodos();

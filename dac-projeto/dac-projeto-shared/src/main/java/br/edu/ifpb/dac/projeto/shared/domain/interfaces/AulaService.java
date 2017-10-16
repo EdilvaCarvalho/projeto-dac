@@ -12,7 +12,7 @@ public interface AulaService {
     
     void salvar(Aula aula);
     void atualizar(Aula aula);
-    void remover(Aula aula);
+    void remover(int codigo);
     Aula getAula(int codigo);
     List<Aula> listar();
 }

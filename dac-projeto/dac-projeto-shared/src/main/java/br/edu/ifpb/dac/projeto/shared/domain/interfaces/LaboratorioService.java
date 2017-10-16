@@ -12,7 +12,7 @@ public interface LaboratorioService {
     
     void salvar(Laboratorio laboratorio);
     void atualizar(Laboratorio laboratorio);
-    void remover(Laboratorio laboratorio);
+    void remover(int codigo);
     Laboratorio getLaboratorio(int codigo);
     List<Laboratorio> listar();
 }

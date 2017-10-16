@@ -12,7 +12,7 @@ public interface TurmaService {
     
     void salvar(Turma turma);
     void atualizar(Turma turma);
-    void remover(Turma turma);
+    void remover(int codigo);
     Turma getTurma(int codigo);
     List<Turma> listar();
 }

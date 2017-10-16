@@ -12,7 +12,7 @@ public interface ProfessorService {
     
     void salvar(Professor professor);
     void atualizar(Professor professor);
-    void remover(Professor professor);
+    void remover(int codigo);
     Professor getProfessor(int codigo);
     List<Professor> listar();
 }

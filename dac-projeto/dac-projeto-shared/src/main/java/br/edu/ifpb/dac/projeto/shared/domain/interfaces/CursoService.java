@@ -12,7 +12,7 @@ public interface CursoService {
     
     void salvar(Curso curso);
     void atualizar(Curso curso);
-    void remover(Curso curso);
+    void remover(int codigo);
     Curso getCurso(int codigo);
     List<Curso> listar();
 }

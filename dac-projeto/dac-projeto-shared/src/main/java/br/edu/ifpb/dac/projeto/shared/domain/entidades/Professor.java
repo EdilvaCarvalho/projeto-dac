@@ -1,10 +1,13 @@
 package br.edu.ifpb.dac.projeto.shared.domain.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -16,6 +19,7 @@ import javax.persistence.OneToMany;
 public class Professor implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 80)
     private String nome;
@@ -36,6 +40,16 @@ public class Professor implements Serializable {
     public Professor() {
     }
 
+    public Professor(String nome, String unidade, String vinculo, String regime, String email) {
+        this.nome = nome;
+        this.unidade = unidade;
+        this.vinculo = vinculo;
+        this.regime = regime;
+        this.email = email;
+        this.turmas  = new ArrayList<>();
+        this.aulas = new ArrayList<>();
+    }
+
     public Professor(int codigo, String nome, String unidade, String vinculo, String regime, String email) {
         this.codigo = codigo;
         this.nome = nome;
@@ -43,6 +57,8 @@ public class Professor implements Serializable {
         this.vinculo = vinculo;
         this.regime = regime;
         this.email = email;
+        this.turmas  = new ArrayList<>();
+        this.aulas = new ArrayList<>();
     }
 
     public Professor(int codigo, String nome, String unidade, String vinculo, String regime, String email, List<Turma> turmas, List<Aula> aulas, Usuario usuario) {

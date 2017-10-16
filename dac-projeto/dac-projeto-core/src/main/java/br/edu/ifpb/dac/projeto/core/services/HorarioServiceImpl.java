@@ -1,39 +1,49 @@
 
 package br.edu.ifpb.dac.projeto.core.services;
 
+import br.edu.ifpb.dac.projeto.core.dao.interfaces.HorarioDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.HorarioService;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Remote(HorarioService.class)
 public class HorarioServiceImpl implements HorarioService{
+    
+    @EJB
+    private HorarioDAO horarioDAO;
 
     @Override
     public void salvar(Horario horario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        horarioDAO.salvar(horario);
     }
 
     @Override
     public void atualizar(Horario horario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        horarioDAO.atualizar(horario);
     }
 
     @Override
-    public void remover(Horario horario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(int codigo) {
+        Horario horario = horarioDAO.getHorario(codigo);
+        horarioDAO.remover(horario);
     }
 
     @Override
     public Horario getHorario(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return horarioDAO.getHorario(codigo);
     }
 
     @Override
     public List<Horario> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return horarioDAO.listar();
     }
     
 }

@@ -1,6 +1,7 @@
 
 package br.edu.ifpb.dac.projeto.core.dao.interfaces;
 
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina;
 import java.util.List;
 
 /**
@@ -9,9 +10,9 @@ import java.util.List;
  */
 public interface DisciplinaDAO {
     
-    void salvar(DisciplinaDAO disciplina);
-    void atualizar(DisciplinaDAO disciplina);
-    void remover(DisciplinaDAO disciplina);
-    DisciplinaDAO getDisciplina(int codigo);
-    List<DisciplinaDAO> listar();
+    void salvar(Disciplina disciplina);
+    void atualizar(Disciplina disciplina);
+    void remover(Disciplina disciplina);
+    Disciplina getDisciplina(int codigo);
+    List<Disciplina> listar();
 }

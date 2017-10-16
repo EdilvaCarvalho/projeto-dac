@@ -2,7 +2,6 @@ package br.edu.ifpb.dac.projeto.shared.domain.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,18 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 
 /**
  *
  * @author Edilva
  */
 @Entity
-//@SequenceGenerator(name = "aula_seq", sequenceName = "aula_sequence", initialValue = 1, allocationSize = 1)
 public class Aula implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private int dia_abrev;
     @Column(length = 80)
@@ -44,6 +41,19 @@ public class Aula implements Serializable {
     private Laboratorio laboratorio;
 
     public Aula() {
+    }
+
+    public Aula(int dia_abrev, String dia_desc, Horario horario, Curso curso, Disciplina disciplina, Turma turma, Semestre semestre, Professor professor, Sala sala, Laboratorio laboratorio) {
+        this.dia_abrev = dia_abrev;
+        this.dia_desc = dia_desc;
+        this.horario = horario;
+        this.curso = curso;
+        this.disciplina = disciplina;
+        this.turma = turma;
+        this.semestre = semestre;
+        this.professor = professor;
+        this.sala = sala;
+        this.laboratorio = laboratorio;
     }
 
     public Aula(int codigo, int dia_abrev, String dia_desc, Horario horario, Curso curso, Disciplina disciplina, Turma turma, Semestre semestre, Professor professor, Sala sala, Laboratorio laboratorio) {

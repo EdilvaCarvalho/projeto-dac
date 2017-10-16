@@ -1,39 +1,50 @@
 
 package br.edu.ifpb.dac.projeto.core.services;
 
+import br.edu.ifpb.dac.projeto.core.dao.interfaces.CursoDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.CursoService;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Remote(CursoService.class)
 public class CursoServiceImpl implements CursoService{
+    
+    @EJB
+    private CursoDAO cursoDAO;
 
     @Override
     public void salvar(Curso curso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cursoDAO.salvar(curso);
     }
 
     @Override
     public void atualizar(Curso curso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        cursoDAO.atualizar(curso);
     }
 
     @Override
-    public void remover(Curso curso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(int codigo) {
+        Curso curso = cursoDAO.getCurso(codigo);
+        cursoDAO.remover(curso);
+        
     }
 
     @Override
     public Curso getCurso(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return cursoDAO.getCurso(codigo);
     }
 
     @Override
     public List<Curso> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return cursoDAO.listar();
     }
     
 }

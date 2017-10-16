@@ -2,6 +2,8 @@ package br.edu.ifpb.dac.projeto.shared.domain.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,12 +14,19 @@ import javax.persistence.Id;
 public class Semestre implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sem_cod;
     private int sem_ano;
     private int sem_per;
     private int sem_ativo;
 
     public Semestre() {
+    }
+
+    public Semestre(int sem_ano, int sem_per, int sem_ativo) {
+        this.sem_ano = sem_ano;
+        this.sem_per = sem_per;
+        this.sem_ativo = sem_ativo;
     }
 
     public Semestre(int sem_cod, int sem_ano, int sem_per, int sem_ativo) {

@@ -3,37 +3,62 @@ package br.edu.ifpb.dac.projeto.core.dao.impl;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.SemestreDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Semestre;
+import java.util.Collections;
 import java.util.List;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Local(SemestreDAO.class)
 public class SemestreDaoImpl implements SemestreDAO{
+    
+    @PersistenceContext(unitName = "dac-projeto-PU")
+    private EntityManager manager;
 
     @Override
     public void salvar(Semestre semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manager.persist(semestre);
     }
 
     @Override
     public void atualizar(Semestre semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manager.merge(semestre);
     }
 
     @Override
     public void remover(Semestre semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        manager.remove(semestre);
     }
 
     @Override
     public Semestre getSemestre(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return manager.find(Semestre.class, codigo);
     }
 
     @Override
     public List<Semestre> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Query query = manager
+                    .createQuery("SELECT s FROM Semestre s");
+
+            List<Semestre> list = query.getResultList();
+
+            if (list == null || list.isEmpty()) {
+                return Collections.EMPTY_LIST;
+            } else {
+                return list;
+            }
+
+        } catch (Exception e) {
+            return Collections.EMPTY_LIST;
+        }
     }
     
 }

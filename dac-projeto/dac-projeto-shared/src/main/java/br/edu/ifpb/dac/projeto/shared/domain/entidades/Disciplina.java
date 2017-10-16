@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -15,6 +17,7 @@ import javax.persistence.ManyToOne;
 public class Disciplina implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @ManyToOne
     private Curso curso;
@@ -27,6 +30,15 @@ public class Disciplina implements Serializable {
     private int aulas_semana;
 
     public Disciplina() {
+    }
+
+    public Disciplina(Curso curso, String descricao, String abreviacao, int periodo, int carga_horaria, int aulas_semana) {
+        this.curso = curso;
+        this.descricao = descricao;
+        this.abreviacao = abreviacao;
+        this.periodo = periodo;
+        this.carga_horaria = carga_horaria;
+        this.aulas_semana = aulas_semana;
     }
 
     public Disciplina(int codigo, Curso curso, String descricao, String abreviacao, int periodo, int carga_horaria, int aulas_semana) {
@@ -143,8 +155,6 @@ public class Disciplina implements Serializable {
         }
         return true;
     }
-
-    
 
     @Override
     public String toString() {

@@ -12,7 +12,7 @@ public interface DisciplinaService {
     
     void salvar(Disciplina disciplina);
     void atualizar(Disciplina disciplina);
-    void remover(Disciplina disciplina);
+    void remover(int codigo);
     Disciplina getDisciplina(int codigo);
     List<Disciplina> listar();
 }

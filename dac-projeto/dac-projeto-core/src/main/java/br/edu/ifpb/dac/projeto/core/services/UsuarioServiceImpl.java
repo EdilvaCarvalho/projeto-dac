@@ -1,54 +1,64 @@
 
 package br.edu.ifpb.dac.projeto.core.services;
 
+import br.edu.ifpb.dac.projeto.core.dao.interfaces.UsuarioDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Usuario;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.UsuarioService;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author Edilva
  */
+@Stateless
+@Remote(UsuarioService.class)
 public class UsuarioServiceImpl implements UsuarioService{
+    
+    @EJB
+    private UsuarioDAO usuarioDAO;
 
     @Override
     public void salvar(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuarioDAO.salvar(usuario);
     }
 
     @Override
     public void atualizar(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        usuarioDAO.atualizar(usuario);
     }
 
     @Override
-    public void remover(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(int id) {
+        Usuario usuario = usuarioDAO.getUsuario(id);
+        usuarioDAO.remover(usuario);
     }
 
     @Override
     public Usuario getUsuario(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarioDAO.getUsuario(id);
     }
 
     @Override
     public Usuario autenticar(String email, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarioDAO.autenticar(email, senha);
     }
 
     @Override
     public List<Usuario> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarioDAO.listarTodos();
     }
 
     @Override
     public List<Usuario> listarAcessoLiberado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarioDAO.listarAcessoLiberado();
     }
 
     @Override
     public List<Usuario> listarAcessoPendente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuarioDAO.listarAcessoPendente();
     }
     
 }
