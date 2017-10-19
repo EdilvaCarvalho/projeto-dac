@@ -14,7 +14,6 @@ import javax.persistence.Id;
 public class Semestre implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sem_cod;
     private int sem_ano;
     private int sem_per;

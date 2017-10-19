@@ -2,7 +2,9 @@
 package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.CursoDAO;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.CursoService;
 import java.util.List;
 import javax.ejb.EJB;
@@ -45,6 +47,11 @@ public class CursoServiceImpl implements CursoService{
     @Override
     public List<Curso> listar() {
         return cursoDAO.listar();
+    }
+
+    @Override
+    public List<Aula> listarAulas(Curso curso) {
+        return cursoDAO.listarAulas(curso);
     }
     
 }

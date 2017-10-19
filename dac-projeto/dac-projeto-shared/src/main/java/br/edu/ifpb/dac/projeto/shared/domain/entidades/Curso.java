@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /**
@@ -19,7 +18,6 @@ import javax.persistence.OneToMany;
 public class Curso implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 40)
     private String unidade;
@@ -29,8 +27,10 @@ public class Curso implements Serializable {
     private String abreviacao;
     private int periodos;
     @OneToMany(mappedBy = "curso")
+    @JoinColumn(name = "curso_codigo")
     private List<Disciplina> disciplinas;
     @OneToMany(mappedBy = "curso")
+    @JoinColumn(name = "curso_codigo")
     private List<Aula> aulas;
 
     public Curso() {

@@ -2,6 +2,7 @@
 package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.LaboratorioDAO;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Laboratorio;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.LaboratorioService;
 import java.util.List;
@@ -44,6 +45,11 @@ public class LaboratorioServiceImpl implements LaboratorioService{
     @Override
     public List<Laboratorio> listar() {
         return laboratorioDAO.listar();
+    }
+
+    @Override
+    public List<Aula> listarAulas(Laboratorio laboratorio) {
+        return laboratorioDAO.listarAulas(laboratorio);
     }
     
 }

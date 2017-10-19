@@ -18,7 +18,6 @@ import javax.persistence.OneToOne;
 public class Turma implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 10)
     private String identificacao;

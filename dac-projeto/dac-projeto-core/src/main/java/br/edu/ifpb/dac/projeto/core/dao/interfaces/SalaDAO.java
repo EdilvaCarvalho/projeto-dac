@@ -1,6 +1,7 @@
 
 package br.edu.ifpb.dac.projeto.core.dao.interfaces;
 
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala;
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface SalaDAO {
     void remover(Sala sala);
     Sala getSala(int codigo);
     List<Sala> listar();
+    List<Aula> listarAulas(Sala sala);
 }

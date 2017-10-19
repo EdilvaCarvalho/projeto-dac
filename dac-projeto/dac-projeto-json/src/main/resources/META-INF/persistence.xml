@@ -2,18 +2,22 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="dac-projeto-PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Professor</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Aula</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Curso</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Disciplina</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Horario</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Laboratorio</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Sala</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Semestre</class>
-    <class>br.edu.ifpb.dac.projeto.json.entidades.Turma</class>
-    <class>br.edu.ifpb.dac.projeto.json.infra.ConvertLocalTime</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Atividade</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Laboratorio</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.ReposicaoDeAula</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Semestre</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Usuario</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalDate</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalTime</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://bancohost:5432/dac-projeto"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/dac-projeto"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value="postgres"/>

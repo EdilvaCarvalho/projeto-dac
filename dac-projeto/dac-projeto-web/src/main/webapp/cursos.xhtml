@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/template.xhtml">
+            <ui:define name="menu">
+                <li class="dropdown">
+                    <a class="navbar-brand" href="#" id="index">Gerenciamento Acadêmico</a>
+                </li>
+            </ui:define>
+            <ui:define name="corpo">
+                <div class="form-group col-md-12">
+                    <h2 align="center">Cursos</h2>
+                    <h:form>
+                        <h:dataTable var="curso" value="#{cursoBean.todosOsCursos()}" class="table">
+                            <h:column>
+                                <f:facet name="header">Abreviação</f:facet>
+                                <h:commandButton id="abrir" value="#{curso.abreviacao}" action="#{cursoBean.pegaCurso(curso)}" class="btn btn-success col-md-8"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Curso</f:facet>
+                                <h:outputText value="#{curso.descricao}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Períodos</f:facet>
+                                <h:outputText value="#{curso.periodos}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Unidade</f:facet>
+                                <h:outputText value="#{curso.unidade}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -2,7 +2,9 @@
 package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.SalaDAO;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.SalaService;
 import java.util.List;
 import javax.ejb.EJB;
@@ -15,7 +17,7 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @Remote(SalaService.class)
-public class SalaServiceImpl implements SalaService{
+public class SalaServiceImpl implements SalaService {
     
     @EJB
     private SalaDAO salaDAO;
@@ -44,6 +46,11 @@ public class SalaServiceImpl implements SalaService{
     @Override
     public List<Sala> listar() {
         return salaDAO.listar();
+    }
+
+    @Override
+    public List<Aula> listarAulas(Sala sala) {
+        return salaDAO.listarAulas(sala);
     }
     
 }

@@ -14,5 +14,5 @@ public interface HorarioDAO {
     void atualizar(Horario horario);
     void remover(Horario horario);
     Horario getHorario(int codigo);
-    List<Horario> listar();
+    public List<Horario> listar();
 }

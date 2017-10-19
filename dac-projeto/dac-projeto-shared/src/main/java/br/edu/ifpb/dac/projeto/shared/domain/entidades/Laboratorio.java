@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /**
@@ -19,13 +21,13 @@ import javax.persistence.OneToMany;
 public class Laboratorio implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 80)
     private String descricao;
     @Column(length = 20)
     private String abreviacao;
     @OneToMany(mappedBy = "laboratorio")
+    @JoinColumn(name = "laboratorio_codigo")
     private List<Aula> aulas;
 
     public Laboratorio() {

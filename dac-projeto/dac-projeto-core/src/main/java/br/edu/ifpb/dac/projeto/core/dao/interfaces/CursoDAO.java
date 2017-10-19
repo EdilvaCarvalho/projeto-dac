@@ -1,6 +1,7 @@
 
 package br.edu.ifpb.dac.projeto.core.dao.interfaces;
 
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso;
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface CursoDAO {
     void remover(Curso curso);
     Curso getCurso(int codigo);
     List<Curso> listar();
+    List<Aula> listarAulas(Curso curso);
 }

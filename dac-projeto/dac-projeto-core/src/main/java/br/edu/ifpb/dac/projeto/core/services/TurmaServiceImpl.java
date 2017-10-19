@@ -2,6 +2,7 @@
 package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.TurmaDAO;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.TurmaService;
 import java.util.List;
@@ -44,6 +45,11 @@ public class TurmaServiceImpl implements TurmaService{
     @Override
     public List<Turma> listar() {
         return turmaDAO.listar();
+    }
+
+    @Override
+    public List<Aula> listarAulas(Turma turma) {
+        return turmaDAO.listarAulas(turma);
     }
     
 }

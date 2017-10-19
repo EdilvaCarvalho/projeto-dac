@@ -1,6 +1,7 @@
 
 package br.edu.ifpb.dac.projeto.shared.domain.interfaces;
 
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface TurmaService {
     void remover(int codigo);
     Turma getTurma(int codigo);
     List<Turma> listar();
+    List<Aula> listarAulas(Turma turma);
 }

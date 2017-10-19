@@ -6,10 +6,13 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -19,7 +22,6 @@ import javax.persistence.OneToMany;
 public class Professor implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     @Column(length = 80)
     private String nome;
@@ -32,9 +34,12 @@ public class Professor implements Serializable {
     @Column(length = 80)
     private String email;
     @OneToMany(mappedBy = "professor")
+    @JoinColumn(name = "professor_codigo")
     private List<Turma> turmas;
     @OneToMany(mappedBy = "professor")
+    @JoinColumn(name = "professor_codigo")
     private List<Aula> aulas;
+    @OneToOne
     private Usuario usuario;
 
     public Professor() {
