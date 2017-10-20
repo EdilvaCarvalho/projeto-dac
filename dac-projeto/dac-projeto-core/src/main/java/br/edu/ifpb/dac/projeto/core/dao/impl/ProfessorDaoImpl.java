@@ -1,4 +1,3 @@
-
 package br.edu.ifpb.dac.projeto.core.dao.impl;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.ProfessorDAO;
@@ -19,8 +18,8 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 @Local(ProfessorDAO.class)
-public class ProfessorDaoImpl implements ProfessorDAO{
-    
+public class ProfessorDaoImpl implements ProfessorDAO {
+
     @PersistenceContext(unitName = "dac-projeto-PU")
     private EntityManager manager;
 
@@ -80,5 +79,36 @@ public class ProfessorDaoImpl implements ProfessorDAO{
             return Collections.EMPTY_LIST;
         }
     }
-    
+
+    @Override
+    public Professor professorPorEmail(String email) {
+        try {
+            TypedQuery<Professor> query = manager.
+                    createQuery("SELECT p FROM Professor p WHERE p.email = :email", Professor.class);
+            query.setParameter("email", email);
+            Professor professor = query.getSingleResult();
+
+            return professor;
+
+        } catch (Exception e) {
+            return new Professor();
+        }
+    }
+
+    @Override
+    public Professor autenticar(String email, String senha) {
+        try {
+            TypedQuery<Professor> query = manager.
+                    createQuery("SELECT p FROM Professor p WHERE p.usuario.email = :email AND p.usuario.senha = :senha", Professor.class);
+            query.setParameter("email", email);
+            query.setParameter("senha", senha);
+            Professor professor = query.getSingleResult();
+
+            return professor;
+
+        } catch (Exception e) {
+            return new Professor();
+        }
+    }
+
 }

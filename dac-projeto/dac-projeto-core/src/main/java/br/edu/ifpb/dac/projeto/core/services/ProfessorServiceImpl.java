@@ -51,5 +51,15 @@ public class ProfessorServiceImpl implements ProfessorService{
     public List<Aula> listarAulas(Professor professor) {
         return professorDAO.listarAulas(professor);
     }
+
+    @Override
+    public Professor professorPorEmail(String email) {
+        return professorDAO.professorPorEmail(email);
+    }
+
+    @Override
+    public Professor autenticar(String email, String senha) {
+         return professorDAO.autenticar(email, senha);
+    }
     
 }

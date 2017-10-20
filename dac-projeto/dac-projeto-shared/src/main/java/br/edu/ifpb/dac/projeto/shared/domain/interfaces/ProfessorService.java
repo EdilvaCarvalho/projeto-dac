@@ -15,6 +15,8 @@ public interface ProfessorService {
     void atualizar(Professor professor);
     void remover(int codigo);
     Professor getProfessor(int codigo);
+    Professor professorPorEmail(String email);
+    Professor autenticar(String email, String senha);
     List<Professor> listar();
     List<Aula> listarAulas(Professor professor);
 }

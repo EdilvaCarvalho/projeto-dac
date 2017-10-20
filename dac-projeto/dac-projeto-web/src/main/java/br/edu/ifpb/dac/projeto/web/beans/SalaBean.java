@@ -1,9 +1,7 @@
 package br.edu.ifpb.dac.projeto.web.beans;
 
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
-import br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala;
-import br.edu.ifpb.dac.projeto.shared.domain.interfaces.HorarioService;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.SalaService;
 import java.io.Serializable;
 import java.util.ArrayList;
