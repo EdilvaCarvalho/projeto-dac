@@ -8,13 +8,8 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="template/template.xhtml">
-            <ui:define name="menu">
-                <li class="dropdown">
-                    <a class="navbar-brand" href="#" id="index">Gerenciamento Acadêmico</a>
-                </li>
-            </ui:define>
-            <ui:define name="corpo">
+        <ui:composition template="home.xhtml">
+            <ui:define name="home-publico">
                 <div class="form-group col-md-12">
                     <h2 align="center">Cursos</h2>
                     <h:form>

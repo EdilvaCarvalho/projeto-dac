@@ -8,16 +8,11 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="template/template.xhtml">
-            <ui:define name="menu">
-                <li class="dropdown">
-                    <a class="navbar-brand" href="#" id="index">Gerenciamento Acadêmico</a>
-                </li>
-            </ui:define>
-            <ui:define name="corpo">
+        <ui:composition template="home.xhtml">
+            <ui:define name="home-publico">
                 <div>
-                    <h2 align="center">#{laboratorioBean.laboratorioEncontrado.descricao}</h2><br/>
-                    <h:dataTable var="aula" value="#{laboratorioBean.aulas}" class="table table-striped">
+                    <h2 align="center">#{professorBean.professorEncontrado.nome}</h2><br/>
+                    <h:dataTable var="aula" value="#{professorBean.aulas}" class="table table-striped">
                         <h:column>
                             <f:facet name="header">Dia</f:facet>
                             <h:outputText value="#{aula.dia_desc}"/>
@@ -31,16 +26,20 @@
                             <h:outputText value="#{aula.horario.hor_fim}"/>
                         </h:column>
                         <h:column>
+                            <f:facet name="header">Sala</f:facet>
+                            <h:outputText value="#{aula.sala.abreviacao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Laboratorio</f:facet>
+                            <h:outputText value="#{aula.laboratorio.abreviacao}"/>
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Curso</f:facet>
                             <h:outputText value="#{aula.curso.abreviacao}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">Disciplina</f:facet>
                             <h:outputText value="#{aula.disciplina.abreviacao}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Professor</f:facet>
-                            <h:outputText value="#{aula.professor.nome}"/>
                         </h:column>
                     </h:dataTable>
                 </div>

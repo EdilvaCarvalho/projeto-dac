@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../template/template.xhtml">
+            <ui:define name="menu">
+                <li class="dropdown">
+                    <a class="navbar-brand" href="home.xhtml" id="index">Gerenciamento Acadêmico</a>
+                </li>
+            </ui:define>
+            <ui:define name="corpo">
+                <div class="form-group col-md-3">
+                    <a id="btnCadastrar" href="cursos.xhtml" class="btn btn-primary btn-block">Cursos</a>
+                </div>
+                <div class="form-group col-md-3">
+                    <a id="btnCadastrar" href="laboratorios.xhtml" class="btn btn-primary btn-block">Laboratórios</a>
+                </div>
+                <div class="form-group col-md-3">
+                    <a id="btnCadastrar" href="salas.xhtml" class="btn btn-primary btn-block">Salas</a>
+                </div>
+                <div class="form-group col-md-3">
+                    <a id="btnCadastrar" href="professores.xhtml" class="btn btn-primary btn-block">Professores</a>
+                </div>
+                <br/>
+                <ui:insert name="home-publico"></ui:insert>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
