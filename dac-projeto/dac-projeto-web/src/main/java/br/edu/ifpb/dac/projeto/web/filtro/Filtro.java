@@ -55,12 +55,12 @@ public class Filtro implements Filter {
     private boolean naoAltorizado(TipoUsuario tipoUsuario, String path) {
         switch (tipoUsuario) {
             case ADMINISTRADOR:
-                if (!path.startsWith("/faces/admin")) {
+                if (!path.startsWith("/faces/admin") && !path.startsWith("/faces/publico")) {
                     return true;
                 }
                 break;
             case PROFESSOR:
-                if (!path.startsWith("/faces/professor")) {
+                if (!path.startsWith("/faces/professor") && !path.startsWith("/faces/publico")) {
                     return true;
                 }
                 break;

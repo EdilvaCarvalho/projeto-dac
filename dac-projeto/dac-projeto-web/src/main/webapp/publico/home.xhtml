@@ -3,24 +3,65 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <ui:composition template="../template/template.xhtml">
             <ui:define name="menu">
-                <li class="dropdown">
-                    <a class="navbar-brand" href="home.xhtml" id="index">Gerenciamento Acadêmico</a>
-                </li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown">#{user.nome}</a>
-                    <ul class="nav dropdown-menu">
-                        <div class="form-group">
-                            
-                        </div>
-                    </ul>
-                </li>
+                <c:if test="#{user.tipoUsuario eq 'ADMINISTRADOR'}">
+                    <li class="dropdown">
+                        <a class="navbar-brand" href="../admin/home.xhtml" id="index">Gerenciamento Acadêmico</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown">#{user.nome}</a>
+                        <ul class="nav dropdown-menu">
+                            <div class="form-group">
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="navbar-brand" href="../admin/liberarAcesso.xhtml" id="index">Liberar Acesso</a>
+                    </li>
+                    <li>
+                        <a class="navbar-brand" href="../admin/usuariosLiberados.xhtml" id="index">Usuarios Liberados</a>
+                    </li>
+                    <li>
+                        <a class="navbar-brand" href="home.xhtml" id="index">Horários</a>
+                    </li>
+                </c:if>
+                <c:if test="#{user.tipoUsuario eq 'PROFESSOR'}">
+                    <li class="dropdown">
+                        <a class="navbar-brand" href="../professor/home.xhtml" id="index">Gerenciamento Acadêmico</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown">#{user.nome}</a>
+                        <ul class="nav dropdown-menu">
+                            <div class="form-group">
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="navbar-brand" href="home.xhtml" id="index">Horários</a>
+                    </li>
+                </c:if>
+                <c:if test="#{user.tipoUsuario eq 'PUBLICO'}">
+                    <li class="dropdown">
+                        <a class="navbar-brand" href="home.xhtml" id="index">Gerenciamento Acadêmico</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown">#{user.nome}</a>
+                        <ul class="nav dropdown-menu">
+                            <div class="form-group">
+
+                            </div>
+                        </ul>
+                    </li>
+                </c:if>
                 <li class="dropdown">
                     <h:form>
                         <h:commandLink class="navbar-brand" id="sair" value="Sair" action="#{usuarioBean.sair()}"/>

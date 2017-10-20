@@ -76,7 +76,7 @@ public class UsuarioBean implements Serializable {
                     case ADMINISTRADOR:
                         return "admin/home.xhtml?faces-redirect=true";
                     case PROFESSOR:
-                        break;
+                        return "professor/home.xhtml?faces-redirect=true";
                     default:
                         return "publico/home.xhtml?faces-redirect=true";
                 }
