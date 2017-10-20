@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -44,7 +45,18 @@ public class UsuarioDaoImpl implements UsuarioDAO{
 
     @Override
     public Usuario autenticar(String email, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            TypedQuery<Usuario> query = manager.
+                    createQuery("SELECT u FROM Usuario u WHERE u.email = :email AND u.senha = :senha", Usuario.class);
+            query.setParameter("email", email);
+            query.setParameter("senha", senha);
+            Usuario professor = query.getSingleResult();
+
+            return professor;
+
+        } catch (Exception e) {
+            return new Usuario();
+        }
     }
 
     @Override

@@ -11,7 +11,8 @@
         <ui:composition template="home.xhtml">
             <ui:define name="home-publico">
                 <div>
-                    <h2 align="center">#{cursoBean.cursoEncontrado.descricao}</h2><br/>
+                    <h2 align="center">#{cursoBean.cursoEncontrado.descricao}</h2>
+                    <h3 align="center">#{cursoBean.periodo}º Período</h3><br/>
                     <h:dataTable var="aula" value="#{cursoBean.aulas}" class="table table-striped">
                         <h:column>
                             <f:facet name="header">Dia</f:facet>

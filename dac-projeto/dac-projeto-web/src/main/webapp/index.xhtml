@@ -20,21 +20,24 @@
                         <h2 align="center">Login</h2>
                         <div class="form-group col-md-12">
                             <h:outputLabel value="Login:"/>
-                            <h:inputText class="form-control" value="" 
+                            <h:inputText class="form-control" value="#{usuarioBean.email}" 
                                          required="true" 
                                          requiredMessage="É preciso informar a email!"
-                                         id="login"/>
+                                         id="email"/>
                         </div>
                         <div class="form-group col-md-12">
                             <h:outputLabel value="Senha:"/>
-                            <h:inputText class="form-control" value="" 
+                            <h:inputSecret class="form-control" value="#{usuarioBean.senha}" 
                                          required="true" 
                                          requiredMessage="É preciso informar a senha!"
                                          id="senha"/>
                         </div>
                         <div class="form-group col-md-12">
+                            <h:commandButton id="entrar" value="Entrar" action="#{usuarioBean.autenticar()}" class="btn btn-primary btn-block"/>
+                        </div>
+                        <div class="form-group col-md-12">
                             <h3 align="center">OU</h3>
-                            <a href="#" class="btn btn-primary btn-block">Crie uma conta</a>
+                            <a href="cadastroUsuario.xhtml" class="btn btn-primary btn-block">Crie uma conta</a>
                         </div>
                     </div>
                 </h:form>

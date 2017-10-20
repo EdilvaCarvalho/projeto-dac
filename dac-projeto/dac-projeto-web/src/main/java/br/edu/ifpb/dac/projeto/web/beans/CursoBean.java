@@ -21,17 +21,25 @@ public class CursoBean implements Serializable {
     @Inject
     private CursoService cursoService;
     private Curso cursoEncontrado = new Curso();
+    private int periodo;
     private List<Aula> aulas = new ArrayList<>();
+    private List<Integer> periodos = new ArrayList<>();
 
     public CursoBean() {
     }
 
     public String pegaCurso(Curso curso) {
         this.cursoEncontrado = this.cursoService.getCurso(curso.getCodigo());
-        return "horarioCurso.xhtml";
+        return "periodos.xhtml";
     }
     
-    public List<Curso> todosOsCursos(){
+    public String aulasPorPeriodo(int periodo){
+        setPeriodo(periodo);
+        getAulas();
+        return "horarioCurso.xhtml";
+    }
+
+    public List<Curso> todosOsCursos() {
         return cursoService.listar();
     }
 
@@ -44,12 +52,32 @@ public class CursoBean implements Serializable {
     }
 
     public List<Aula> getAulas() {
-        aulas = this.cursoService.listarAulas(cursoEncontrado);
+        aulas = this.cursoService.listarAulas(cursoEncontrado, periodo);
         return aulas;
     }
 
     public void setAulas(List<Aula> aulas) {
         this.aulas = aulas;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
+
+    public List<Integer> getPeriodos() {
+        this.periodos = new ArrayList<>();
+        for (int i = 1; i < this.getCursoEncontrado().getPeriodos()+1; ++i) {
+            this.periodos.add(i);
+        }
+        return periodos;
+    }
+
+    public void setPeriodos(List<Integer> periodos) {
+        this.periodos = periodos;
     }
 
 }

@@ -50,8 +50,8 @@ public class CursoServiceImpl implements CursoService{
     }
 
     @Override
-    public List<Aula> listarAulas(Curso curso) {
-        return cursoDAO.listarAulas(curso);
+    public List<Aula> listarAulas(Curso curso, int periodo) {
+        return cursoDAO.listarAulas(curso, periodo);
     }
     
 }

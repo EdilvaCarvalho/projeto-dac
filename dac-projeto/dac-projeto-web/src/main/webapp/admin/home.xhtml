@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -21,6 +20,9 @@
                         </div>
                     </ul>
                 </li>
+                <li>
+                    <a class="navbar-brand" href="liberarAcesso.xhtml" id="index">Liberar Acesso</a>
+                </li>
                 <li class="dropdown">
                     <h:form>
                         <h:commandLink class="navbar-brand" id="sair" value="Sair" action="#{usuarioBean.sair()}"/>
@@ -28,20 +30,7 @@
                 </li>
             </ui:define>
             <ui:define name="corpo">
-                <div class="form-group col-md-3">
-                    <a id="btnCadastrar" href="cursos.xhtml" class="btn btn-primary btn-block">Cursos</a>
-                </div>
-                <div class="form-group col-md-3">
-                    <a id="btnCadastrar" href="laboratorios.xhtml" class="btn btn-primary btn-block">Laboratórios</a>
-                </div>
-                <div class="form-group col-md-3">
-                    <a id="btnCadastrar" href="salas.xhtml" class="btn btn-primary btn-block">Salas</a>
-                </div>
-                <div class="form-group col-md-3">
-                    <a id="btnCadastrar" href="professores.xhtml" class="btn btn-primary btn-block">Professores</a>
-                </div>
-                <br/>
-                <ui:insert name="home-publico"></ui:insert>
+                <ui:insert name="home-admin"></ui:insert>
             </ui:define>
         </ui:composition>
     </h:body>

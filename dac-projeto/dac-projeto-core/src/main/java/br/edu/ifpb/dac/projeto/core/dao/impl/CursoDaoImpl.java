@@ -63,10 +63,11 @@ public class CursoDaoImpl implements CursoDAO {
     }
 
     @Override
-    public List<Aula> listarAulas(Curso curso) {
+    public List<Aula> listarAulas(Curso curso, int periodo) {
         try {
-            TypedQuery<Aula> query = manager.createQuery("SELECT a FROM Aula a WHERE a.curso.codigo = :codigo", Aula.class);
+            TypedQuery<Aula> query = manager.createQuery("SELECT a FROM Aula a WHERE a.curso.codigo = :codigo AND a.disciplina.periodo = :periodo", Aula.class);
             query.setParameter("codigo", curso.getCodigo());
+            query.setParameter("periodo", periodo);
             List<Aula> list = query.getResultList();
 
             if (list == null || list.isEmpty()) {
@@ -79,5 +80,5 @@ public class CursoDaoImpl implements CursoDAO {
             return Collections.EMPTY_LIST;
         }
     }
-
+        
 }

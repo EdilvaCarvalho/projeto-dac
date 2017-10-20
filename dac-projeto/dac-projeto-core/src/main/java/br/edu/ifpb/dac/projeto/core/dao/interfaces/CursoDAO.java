@@ -16,5 +16,5 @@ public interface CursoDAO {
     void remover(Curso curso);
     Curso getCurso(int codigo);
     List<Curso> listar();
-    List<Aula> listarAulas(Curso curso);
+    List<Aula> listarAulas(Curso curso, int periodo);
 }
