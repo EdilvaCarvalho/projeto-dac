@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../template/template.xhtml">
+            <ui:define name="menu">
+                <li class="dropdown">
+                    <a class="navbar-brand" href="home.xhtml" id="index">Gerenciamento Acadêmico</a>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle navbar-brand" data-toggle="dropdown">#{user.nome}</a>
+                    <ul class="nav dropdown-menu">
+                        <div class="form-group">
+
+                        </div>
+                    </ul>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="../publico/home.xhtml" id="index">Horários</a>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="cadastroatividades.xhtml" id="index">Cadastrar Atividades</a>
+                </li>
+                <li class="dropdown">
+                    <h:form>
+                        <h:commandLink class="navbar-brand" id="sair" value="Sair" action="#{usuarioBean.sair()}"/>
+                    </h:form>
+                </li>
+            </ui:define>
+            <ui:define name="corpo">
+                <ui:insert name="home-admin"></ui:insert>
+                 <h:form acceptcharset="UTF-8">
+                    <div class="container" style="width:50%">
+                        <h2 align="center">Dados da atividade</h2>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel value="Nome:"/>
+                            <h:inputText class="form-control" value="#{usuarioBean.usuario.nome}" 
+                                         required="true" 
+                                         requiredMessage="É preciso informar o nome!"
+                                         id="nome"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel value="Sobrenome:"/>
+                            <h:inputText class="form-control" value="#{usuarioBean.usuario.sobrenome}" 
+                                         required="true" 
+                                         requiredMessage="É preciso informar o sobrenome!"
+                                         id="sobrenome"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel value="Email:"/>
+                            <h:inputText class="form-control" value="#{usuarioBean.usuario.email}" 
+                                         required="true" 
+                                         requiredMessage="É preciso informar o email!"
+                                         id="email"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel value="Senha:"/>
+                            <h:inputSecret class="form-control" value="#{usuarioBean.usuario.senha}" 
+                                           required="true" 
+                                           requiredMessage="É preciso informar o sobrenome!"
+                                           id="senha"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:outputLabel value="Tipo de Usuário:"/>
+                            <h:selectOneMenu value="#{usuarioBean.usuario.tipoUsuario}" class="col-md-12">
+                                <f:selectItems var="tipo" value="#{tipoUsuarioBean.tipoUsuarios}" itemLabel="#{tipo.descricao}"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <h:commandButton id="cadastrar" value="Cadastrar" action="#{usuarioBean.cadastrar()}" class="btn btn-primary col-md-4"/>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
