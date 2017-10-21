@@ -16,7 +16,7 @@
                         <h:dataTable var="professor" value="#{professorBean.todosOsProfessores()}" class="table">
                             <h:column>
                                 <f:facet name="header">Professor</f:facet>
-                                <h:commandButton id="abrir" value="#{professor.nome}" action="#{professorBean.pegaProfessor(professor)}" class="btn btn-success col-md-6"/>
+                                <h:outputText value="#{professor.nome}"/>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Vínculo</f:facet>
@@ -29,6 +29,14 @@
                             <h:column>
                                 <f:facet name="header">Unidade</f:facet>
                                 <h:outputText value="#{professor.unidade}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Horários</f:facet>
+                                <h:commandButton id="abrir" value="Horários" action="#{professorBean.pegaProfessorAulas(professor)}" class="btn btn-success col-md-8"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Turmas</f:facet>
+                                <h:commandButton id="abrirTurma" value="Turmas" action="#{professorBean.pegaProfessorTurmas(professor)}" class="btn btn-primary col-md-8"/>
                             </h:column>
                         </h:dataTable>
                     </h:form>

@@ -2,7 +2,9 @@ package br.edu.ifpb.dac.projeto.core.dao.impl;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.ProfessorDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import java.util.Collections;
 import java.util.List;
 import javax.ejb.Local;
@@ -108,6 +110,24 @@ public class ProfessorDaoImpl implements ProfessorDAO {
 
         } catch (Exception e) {
             return new Professor();
+        }
+    }
+
+    @Override
+    public List<Disciplina> listarDisciplinas(Professor professor) {
+        try {
+            TypedQuery<Disciplina> query = manager.createQuery("SELECT DISTINCT(a.disciplina) FROM Aula a WHERE a.professor = :professor", Disciplina.class);
+            query.setParameter("professor", professor);
+            List<Disciplina> list = query.getResultList();
+
+            if (list == null || list.isEmpty()) {
+                return Collections.EMPTY_LIST;
+            } else {
+                return list;
+            }
+
+        } catch (Exception e) {
+            return Collections.EMPTY_LIST;
         }
     }
 

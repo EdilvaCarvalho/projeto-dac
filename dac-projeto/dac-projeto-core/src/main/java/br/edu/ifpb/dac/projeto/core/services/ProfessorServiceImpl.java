@@ -3,7 +3,9 @@ package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.ProfessorDAO;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.ProfessorService;
 import java.util.List;
 import javax.ejb.EJB;
@@ -60,6 +62,11 @@ public class ProfessorServiceImpl implements ProfessorService{
     @Override
     public Professor autenticar(String email, String senha) {
          return professorDAO.autenticar(email, senha);
+    }
+
+    @Override
+    public List<Disciplina> listarDisciplinas(Professor professor) {
+        return professorDAO.listarDisciplinas(professor);
     }
     
 }
