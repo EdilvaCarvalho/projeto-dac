@@ -1,6 +1,7 @@
 
 package br.edu.ifpb.dac.projeto.shared.domain.interfaces;
 
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario;
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface HorarioService {
     void remover(int codigo);
     Horario getHorario(int codigo);
     List<Horario> listar();
+    List<Object[]> horarioDisponivelReposicao(Aula aula);
 }

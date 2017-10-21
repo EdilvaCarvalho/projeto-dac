@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -20,51 +19,30 @@ public class ReposicaoDeAula implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
-    @Column(length = 150)
-    private String assunto;
+    @OneToOne
+    private Aula aula;
     @OneToOne
     private Horario horario;
-    @ManyToOne
-    private Curso curso;
-    @OneToOne
-    private Disciplina disciplina;
-    @OneToOne
-    private Turma turma;
-    @OneToOne
-    private Semestre semestre;
-    @ManyToOne
-    private Professor professor;
-    @ManyToOne
-    private Sala sala;
-    @ManyToOne
-    private Laboratorio laboratorio;
+    @Column(length = 30)
+    private String dia_desc;
+    private boolean realizada;
 
     public ReposicaoDeAula() {
     }
 
-    public ReposicaoDeAula(String assunto, Horario horario, Curso curso, Disciplina disciplina, Turma turma, Semestre semestre, Professor professor, Sala sala, Laboratorio laboratorio) {
-        this.assunto = assunto;
+    public ReposicaoDeAula(Aula aula, Horario horario, String dia_desc, boolean realizada) {
+        this.aula = aula;
         this.horario = horario;
-        this.curso = curso;
-        this.disciplina = disciplina;
-        this.turma = turma;
-        this.semestre = semestre;
-        this.professor = professor;
-        this.sala = sala;
-        this.laboratorio = laboratorio;
+        this.dia_desc = dia_desc;
+        this.realizada = realizada;
     }
 
-    public ReposicaoDeAula(int codigo, String assunto, Horario horario, Curso curso, Disciplina disciplina, Turma turma, Semestre semestre, Professor professor, Sala sala, Laboratorio laboratorio) {
+    public ReposicaoDeAula(int codigo, Aula aula, Horario horario, String dia_desc, boolean realizada) {
         this.codigo = codigo;
-        this.assunto = assunto;
+        this.aula = aula;
         this.horario = horario;
-        this.curso = curso;
-        this.disciplina = disciplina;
-        this.turma = turma;
-        this.semestre = semestre;
-        this.professor = professor;
-        this.sala = sala;
-        this.laboratorio = laboratorio;
+        this.dia_desc = dia_desc;
+        this.realizada = realizada;
     }
 
     public int getCodigo() {
@@ -75,12 +53,12 @@ public class ReposicaoDeAula implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getAssunto() {
-        return assunto;
+    public Aula getAula() {
+        return aula;
     }
 
-    public void setAssunto(String assunto) {
-        this.assunto = assunto;
+    public void setAula(Aula aula) {
+        this.aula = aula;
     }
 
     public Horario getHorario() {
@@ -91,75 +69,30 @@ public class ReposicaoDeAula implements Serializable {
         this.horario = horario;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public String getDia_desc() {
+        return dia_desc;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setDia_desc(String dia_desc) {
+        this.dia_desc = dia_desc;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public boolean isRealizada() {
+        return realizada;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
-    }
-
-    public Turma getTurma() {
-        return turma;
-    }
-
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-
-    public Semestre getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(Semestre semestre) {
-        this.semestre = semestre;
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public Sala getSala() {
-        return sala;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
-
-    public Laboratorio getLaboratorio() {
-        return laboratorio;
-    }
-
-    public void setLaboratorio(Laboratorio laboratorio) {
-        this.laboratorio = laboratorio;
+    public void setRealizada(boolean realizada) {
+        this.realizada = realizada;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.codigo;
-        hash = 97 * hash + Objects.hashCode(this.assunto);
-        hash = 97 * hash + Objects.hashCode(this.horario);
-        hash = 97 * hash + Objects.hashCode(this.curso);
-        hash = 97 * hash + Objects.hashCode(this.disciplina);
-        hash = 97 * hash + Objects.hashCode(this.turma);
-        hash = 97 * hash + Objects.hashCode(this.semestre);
-        hash = 97 * hash + Objects.hashCode(this.professor);
-        hash = 97 * hash + Objects.hashCode(this.sala);
-        hash = 97 * hash + Objects.hashCode(this.laboratorio);
+        hash = 67 * hash + this.codigo;
+        hash = 67 * hash + Objects.hashCode(this.aula);
+        hash = 67 * hash + Objects.hashCode(this.horario);
+        hash = 67 * hash + Objects.hashCode(this.dia_desc);
+        hash = 67 * hash + (this.realizada ? 1 : 0);
         return hash;
     }
 
@@ -178,31 +111,16 @@ public class ReposicaoDeAula implements Serializable {
         if (this.codigo != other.codigo) {
             return false;
         }
-        if (!Objects.equals(this.assunto, other.assunto)) {
+        if (this.realizada != other.realizada) {
+            return false;
+        }
+        if (!Objects.equals(this.dia_desc, other.dia_desc)) {
+            return false;
+        }
+        if (!Objects.equals(this.aula, other.aula)) {
             return false;
         }
         if (!Objects.equals(this.horario, other.horario)) {
-            return false;
-        }
-        if (!Objects.equals(this.curso, other.curso)) {
-            return false;
-        }
-        if (!Objects.equals(this.disciplina, other.disciplina)) {
-            return false;
-        }
-        if (!Objects.equals(this.turma, other.turma)) {
-            return false;
-        }
-        if (!Objects.equals(this.semestre, other.semestre)) {
-            return false;
-        }
-        if (!Objects.equals(this.professor, other.professor)) {
-            return false;
-        }
-        if (!Objects.equals(this.sala, other.sala)) {
-            return false;
-        }
-        if (!Objects.equals(this.laboratorio, other.laboratorio)) {
             return false;
         }
         return true;
@@ -210,7 +128,7 @@ public class ReposicaoDeAula implements Serializable {
 
     @Override
     public String toString() {
-        return "ReposicaoDeAula{" + "codigo=" + codigo + ", assunto=" + assunto + ", horario=" + horario + ", curso=" + curso + ", disciplina=" + disciplina + ", turma=" + turma + ", semestre=" + semestre + ", professor=" + professor + ", sala=" + sala + ", laboratorio=" + laboratorio + '}';
+        return "ReposicaoDeAula{" + "codigo=" + codigo + ", aula=" + aula + ", horario=" + horario + ", dia_desc=" + dia_desc + ", realizada=" + realizada + '}';
     }
 
 }
