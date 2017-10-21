@@ -38,8 +38,12 @@
                             <h:outputText value="#{aula.curso.abreviacao}"/>
                         </h:column>
                         <h:column>
+                            <f:facet name="header">Período</f:facet>
+                            <h:outputText value="#{aula.disciplina.periodo}"/>
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Disciplina</f:facet>
-                            <h:outputText value="#{aula.disciplina.abreviacao}"/>
+                            <h:outputText value="#{aula.disciplina.abreviacao} - #{aula.turma.identificacao}"/>
                         </h:column>
                     </h:dataTable>
                 </div>

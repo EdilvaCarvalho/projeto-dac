@@ -2,6 +2,7 @@
 package br.edu.ifpb.dac.projeto.core.services;
 
 import br.edu.ifpb.dac.projeto.core.dao.interfaces.HorarioDAO;
+import br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula;
 import br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario;
 import br.edu.ifpb.dac.projeto.shared.domain.interfaces.HorarioService;
 import java.util.List;
@@ -44,6 +45,11 @@ public class HorarioServiceImpl implements HorarioService{
     @Override
     public List<Horario> listar() {
         return horarioDAO.listar();
+    }
+
+    @Override
+    public List<Object[]> horarioDisponivelReposicao(Aula aula) {
+        return horarioDAO.horarioDisponivelReposicao(aula);
     }
     
 }
