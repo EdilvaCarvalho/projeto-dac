@@ -12,7 +12,7 @@
             <ui:define name="home-admin">
                 <div>
                     <h2 align="center">Usuários com acesso liberado</h2><br/>
-                    <h:dataTable var="usuario" value="#{usuarioBean.usuariosNaoLiberados}" class="table table-striped">
+                    <h:dataTable var="usuario" value="#{usuarioBean.usuariosLiberados}" class="table table-striped">
                         <h:column>
                             <f:facet name="header">Nome</f:facet>
                             <h:outputText value="#{usuario.nome} #{usuario.sobrenome}"/>
