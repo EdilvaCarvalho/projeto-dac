@@ -39,41 +39,27 @@
                     <div class="container" style="width:50%">
                         <h2 align="center">Dados da atividade</h2>
                         <div class="form-group col-md-12">
-                            <h:outputLabel value="Nome:"/>
-                            <h:inputText class="form-control" value="#{usuarioBean.usuario.nome}" 
+                            <h:outputLabel value="Descrição:"/>
+                            <h:inputText class="form-control" value="#{atividadeBean.atividade.descricao}" 
                                          required="true" 
-                                         requiredMessage="É preciso informar o nome!"
+                                         requiredMessage="É preciso informar a descrição!"
                                          id="nome"/>
                         </div>
                         <div class="form-group col-md-12">
-                            <h:outputLabel value="Sobrenome:"/>
-                            <h:inputText class="form-control" value="#{usuarioBean.usuario.sobrenome}" 
+                            <h:outputLabel value="Data:"/>
+                            <h:inputText class="form-control" value="#{atividadeBean.atividade.data}" 
                                          required="true" 
-                                         requiredMessage="É preciso informar o sobrenome!"
+                                         requiredMessage="É preciso informar a data!"
                                          id="sobrenome"/>
                         </div>
                         <div class="form-group col-md-12">
-                            <h:outputLabel value="Email:"/>
-                            <h:inputText class="form-control" value="#{usuarioBean.usuario.email}" 
-                                         required="true" 
-                                         requiredMessage="É preciso informar o email!"
-                                         id="email"/>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <h:outputLabel value="Senha:"/>
-                            <h:inputSecret class="form-control" value="#{usuarioBean.usuario.senha}" 
-                                           required="true" 
-                                           requiredMessage="É preciso informar o sobrenome!"
-                                           id="senha"/>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <h:outputLabel value="Tipo de Usuário:"/>
-                            <h:selectOneMenu value="#{usuarioBean.usuario.tipoUsuario}" class="col-md-12">
-                                <f:selectItems var="tipo" value="#{tipoUsuarioBean.tipoUsuarios}" itemLabel="#{tipo.descricao}"/>
+                            <h:outputLabel value="Turma:"/>
+                            <h:selectOneMenu value="#{atividadeBean.atividade.turma}" class="col-md-12">
+                                <f:selectItems var="tipo" value="#{atividadeBean.atividade.turma}" itemLabel="#{atividadeBean.atividade.turma}"/>
                             </h:selectOneMenu>
                         </div>
                         <div class="form-group col-md-12">
-                            <h:commandButton id="cadastrar" value="Cadastrar" action="#{usuarioBean.cadastrar()}" class="btn btn-primary col-md-4"/>
+                            <h:commandButton id="cadastrar" value="Cadastrar" action="#{atividadeBean.cadastrar()}" class="btn btn-primary col-md-4"/>
                         </div>
                     </div>
                 </h:form>
