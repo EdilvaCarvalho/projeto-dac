@@ -76,6 +76,8 @@ public class UsuarioBean implements Serializable {
                     case ADMINISTRADOR:
                         return "admin/home.xhtml?faces-redirect=true";
                     case PROFESSOR:
+                        Professor professor = this.professorService.professorPorUsuario(usuario);
+                        session.setAttribute("professor", professor);
                         return "professor/home.xhtml?faces-redirect=true";
                     default:
                         return "publico/home.xhtml?faces-redirect=true";

@@ -19,7 +19,7 @@ public class LaboratorioServiceProducer {
     @Dependent
     @Produces
     @Default
-    private LaboratorioService getAulaService() {
+    private LaboratorioService getLaboratorioService() {
         return new ServiceLocator().lookup(RESOURCE, LaboratorioService.class);
     }
 }

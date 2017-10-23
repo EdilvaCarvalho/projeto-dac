@@ -19,7 +19,7 @@ public class UsuarioServiceProducer {
     @Dependent
     @Produces
     @Default
-    private UsuarioService getAulaService() {
+    private UsuarioService getUsuarioService() {
         return new ServiceLocator().lookup(RESOURCE, UsuarioService.class);
     }
 }

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="dac-projeto-PU" transaction-type="JTA">
-        <jta-data-source>java:app/jdbc/dac-projeto</jta-data-source>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Atividade</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Laboratorio</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.ReposicaoDeAula</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Semestre</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Usuario</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalDate</class>
-        <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalTime</class>
-        <exclude-unlisted-classes>true</exclude-unlisted-classes>
-        <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
-            <property name="eclipselink.weaving" value="false"/>
-            <property name="eclipselink.logging.parameters" value="true"/>
-        </properties>
-    </persistence-unit>
+  <persistence-unit name="dac-projeto-PU" transaction-type="JTA">
+    <jta-data-source>java:app/jdbc/dac-projeto</jta-data-source>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Atividade</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Aula</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Curso</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Disciplina</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Horario</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Laboratorio</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Professor</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.ReposicaoDeAula</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Sala</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Semestre</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Turma</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Usuario</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalDate</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.util.ConvertLocalTime</class>
+    <class>br.edu.ifpb.dac.projeto.shared.domain.entidades.Duvida</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.weaving" value="false"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+    </properties>
+  </persistence-unit>
 </persistence>

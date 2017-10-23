@@ -19,7 +19,7 @@ public class SalaServiceProducer {
     @Dependent
     @Produces
     @Default
-    private SalaService getAulaService() {
+    private SalaService getSalaService() {
         return new ServiceLocator().lookup(RESOURCE, SalaService.class);
     }
 }

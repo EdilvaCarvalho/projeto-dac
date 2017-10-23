@@ -19,7 +19,7 @@ public class DisciplinaServiceProducer {
     @Dependent
     @Produces
     @Default
-    private DisciplinaService getAulaService() {
+    private DisciplinaService getDisciplinaService() {
         return new ServiceLocator().lookup(RESOURCE, DisciplinaService.class);
     }
 }

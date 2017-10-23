@@ -19,7 +19,7 @@ public class SemestreServiceProducer {
     @Dependent
     @Produces
     @Default
-    private SemestreService getAulaService() {
+    private SemestreService getSemestreService() {
         return new ServiceLocator().lookup(RESOURCE, SemestreService.class);
     }
 }

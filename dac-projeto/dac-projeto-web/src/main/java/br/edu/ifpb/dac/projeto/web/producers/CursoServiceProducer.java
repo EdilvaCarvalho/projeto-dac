@@ -19,7 +19,7 @@ public class CursoServiceProducer {
     @Dependent
     @Produces
     @Default
-    private CursoService getAulaService() {
+    private CursoService getCursoService() {
         return new ServiceLocator().lookup(RESOURCE, CursoService.class);
     }
 }

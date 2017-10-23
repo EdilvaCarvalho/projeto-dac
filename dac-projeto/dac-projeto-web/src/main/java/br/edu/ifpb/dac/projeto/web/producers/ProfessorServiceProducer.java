@@ -19,7 +19,7 @@ public class ProfessorServiceProducer {
     @Dependent
     @Produces
     @Default
-    private ProfessorService getAulaService() {
+    private ProfessorService getProfessorService() {
         return new ServiceLocator().lookup(RESOURCE, ProfessorService.class);
     }
 }

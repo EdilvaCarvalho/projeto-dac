@@ -19,7 +19,7 @@ public class HorarioServiceProducer {
     @Dependent
     @Produces
     @Default
-    private HorarioService getAulaService() {
+    private HorarioService getHorarioService() {
         return new ServiceLocator().lookup(RESOURCE, HorarioService.class);
     }
 }

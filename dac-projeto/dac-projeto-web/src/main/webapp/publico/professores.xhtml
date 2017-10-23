@@ -38,6 +38,10 @@
                                 <f:facet name="header">Turmas</f:facet>
                                 <h:commandButton id="abrirTurma" value="Turmas" action="#{professorBean.pegaProfessorTurmas(professor)}" class="btn btn-primary col-md-8"/>
                             </h:column>
+                            <h:column>
+                                <f:facet name="header">Dúvidas</f:facet>
+                                <h:commandButton id="abrirDuvida" value="Duvidas" action="#{duvidaBean.pegaProfessor(professor)}" class="btn btn-primary col-md-8"/>
+                            </h:column>
                         </h:dataTable>
                     </h:form>
                 </div>

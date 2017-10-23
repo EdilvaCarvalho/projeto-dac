@@ -19,7 +19,7 @@ public class TurmaServiceProducer {
     @Dependent
     @Produces
     @Default
-    private TurmaService getAulaService() {
+    private TurmaService getTurmaService() {
         return new ServiceLocator().lookup(RESOURCE, TurmaService.class);
     }
 }
